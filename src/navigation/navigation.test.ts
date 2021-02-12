@@ -14,7 +14,7 @@ describe('Navigation', () => {
   });
 
   it('navigates to card detail', () => {
-    const anId = "an-id;"
+    const anId = 'an-id;';
     
     Navigation.toCardDetail(anId);
 

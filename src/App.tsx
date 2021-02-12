@@ -1,24 +1,20 @@
-import React, { FunctionComponent } from 'react';
-import logo from './logo.svg';
+import React, { FunctionComponent, Suspense, lazy } from 'react';
+import { Router, Route, Switch } from 'react-router';
+import History from './navigation/navigation';
+import { Loading } from './components/Loading';
+
+const CardListPage = lazy(() => import('./cards/ListPage'));
 
 const App: FunctionComponent = (): JSX.Element => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <Router history={History.history}>
+    <Suspense fallback={<Loading />}>
+      <Switch>
+        <Route>
+          <CardListPage />
+        </Route>
+      </Switch>
+    </Suspense>
+  </Router>
 );
-
 
 export default App;
