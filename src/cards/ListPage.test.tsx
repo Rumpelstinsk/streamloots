@@ -7,8 +7,8 @@ import { initialState as initialCardState } from '../store/cards/reducer';
 import { initialState as initialFilterState } from '../store/filters/reducer';
 import ListPage from './ListPage';
 import { FetchCards } from '../actions/fetch-cards';
-import { Card } from '../repositories';
 import { setCards } from '../store/cards/actions';
+import cardsFrom from '../tests/helpers/cards-from';
 
 
 describe('FilterForm', () => {
@@ -39,13 +39,6 @@ describe('FilterForm', () => {
     });    
   });
 
-  const cardsFrom = (number: number):Card[] => new Array(number).fill({}).map((_, index):Card => ({
-    _id: `${index}`,
-    count: { total: index },
-    imageUrl: `${index}-url`,
-    name: `${index}-name`
-  }));
-  
   const renderComponent = (): MockStoreEnhanced<unknown, {}> => {
     const store:StoreType = { cards: initialCardState, filters: initialFilterState };
     const mockStore = configureStore();

@@ -1,4 +1,5 @@
-import { CardRepository, Card } from '../repositories';
+import { CardRepository } from '../repositories';
+import cardsFrom from '../tests/helpers/cards-from';
 import { FetchCards } from './fetch-cards';
 
 describe('FetchCards', () => {
@@ -26,12 +27,5 @@ describe('FetchCards', () => {
     const result = await FetchCards.do();
 
     expect(result).toEqual([]);
-  });
-
-  const cardsFrom = (number: number):Card[] => new Array(number).fill({}).map((_, index):Card => ({
-    _id: `${index}`,
-    count: { total: 10 },
-    imageUrl: `${index}-url`,
-    name: `${index}-name`
-  }));
+  });  
 });

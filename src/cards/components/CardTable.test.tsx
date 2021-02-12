@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Card } from '../../repositories';
+import cardsFrom from '../../tests/helpers/cards-from';
 import CardTable from './CardTable';
 
 describe('Table', () => {
@@ -34,13 +34,6 @@ describe('Table', () => {
     expect(screen.getByText('9-name')).toBeVisible();
     expect(screen.queryByText('10-name')).not.toBeInTheDocument();
   });
-
-  const cardsFrom = (number: number):Card[] => new Array(number).fill({}).map((_, index):Card => ({
-    _id: `${index}`,
-    count: { total: index },
-    imageUrl: `${index}-url`,
-    name: `${index}-name`
-  }));
 
   const renderComponent = (props?: Record<string, unknown>): void => {
     const defaultProps = {
