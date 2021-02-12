@@ -1,5 +1,5 @@
 export class ApiClient {
-  private static readonly baseUrl = 'https://drive.google.com/u/0/uc?export=download&id=';
+  private static readonly baseUrl = 'https://raw.githubusercontent.com/Rumpelstinsk/streamloots/main/cards.json?';
   
   static async fetch<T>(endpoint: string, method: 'GET' = 'GET'): Promise<T> {
     const response = await this.responseFrom(endpoint, method);

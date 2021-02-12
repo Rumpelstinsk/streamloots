@@ -14,7 +14,7 @@ type HookType = {
 export const useFilters = ():HookType => {    
   const dispatch = useDispatch();
   const filterState = useSelector((state:StoreType) => state.filters);    
-
+  
   return {
     cardName: filterState.cardName,
     minCards: filterState.minCards,

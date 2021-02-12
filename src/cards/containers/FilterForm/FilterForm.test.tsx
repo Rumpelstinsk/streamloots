@@ -4,10 +4,10 @@ import React from 'react';
 import * as reactRedux from 'react-redux';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 import FilterForm from './FilterForm';
-import { StoreType } from '../../store/store';
-import { initialState as initialCardState } from '../../store/cards/reducer';
-import { initialState as initialFilterState } from '../../store/filters/reducer';
-import { clearFilters, setCardName, setMinCards } from '../../store/filters/actions';
+import { StoreType } from '../../../store/store';
+import { initialState as initialCardState } from '../../../store/cards/reducer';
+import { initialState as initialFilterState } from '../../../store/filters/reducer';
+import { clearFilters, setCardName, setMinCards } from '../../../store/filters/actions';
 
 
 describe('FilterForm', () => {

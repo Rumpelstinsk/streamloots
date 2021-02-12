@@ -24,6 +24,6 @@ describe('ApiClient', () => {
   });
 
   const mockUrl = (url: string, response:Object):void => {
-    fetchMock.mock(`https://drive.google.com/u/0/uc?export=download&id=${url}`, response, { overwriteRoutes: true });
+    fetchMock.mock(`https://raw.githubusercontent.com/Rumpelstinsk/streamloots/main/cards.json?${url}`, response, { overwriteRoutes: true });
   };
 });
