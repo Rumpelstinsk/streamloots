@@ -10,6 +10,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Card } from '../../../../repositories';
 import { Image, Button } from '../../../../components';
+import './CardTable.css';
 
 
 type Props = {
@@ -55,8 +56,8 @@ const CardRow: FunctionComponent<CardRowProps> = ({ card, onClick, onDelete }: C
         </Button>
       </TableCell>
       <TableCell onClick={handleClick}><Image src={card.imageUrl} alt={card.name} /></TableCell>
-      <TableCell onClick={handleClick}>{card.name}</TableCell>
-      <TableCell onClick={handleClick}>{card.count.total}</TableCell>
+      <TableCell onClick={handleClick}><div className="hideOn450">{card.name}</div></TableCell>
+      <TableCell onClick={handleClick}><div className="hideOn650">{card.count.total}</div></TableCell>
     </TableRow>
   );
 };
@@ -86,8 +87,8 @@ const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick
             <TableRow>
               <TableCell />
               <TableCell />
-              <TableCell>Card name</TableCell>
-              <TableCell>Number of cards</TableCell>
+              <TableCell><div className="hideOn450">Card name</div></TableCell>
+              <TableCell><div className="hideOn650">Number of cards</div></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

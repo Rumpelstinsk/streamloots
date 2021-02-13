@@ -1,0 +1,15 @@
+.hideOn450, .hideOn650 {
+    display:block
+}
+
+@media(max-width:650px) {
+    .hideOn650{
+        display: none;
+    }
+}
+
+@media(max-width:450px) {
+    .hideOn450{
+        display: none;
+    }
+}
