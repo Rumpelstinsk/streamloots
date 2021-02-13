@@ -8,14 +8,15 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Card } from '../../../repositories';
-import { Image } from '../../../components';
+import { Card } from '../../../../repositories';
+import { Image, Button } from '../../../../components';
 
 
 type Props = {
   cards: Card[],
   numberItemsInPage: number,
-  onClick: (id:string) => void
+  onClick: (id: string) => void,
+  onDelete: (id: string) => void
 };
 const useStyles = makeStyles({
   customTableContainer: {
@@ -26,16 +27,54 @@ const useStyles = makeStyles({
   }
 });
 
-const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick }:Props): JSX.Element => {  
+type CardRowProps = {
+  card: Card,
+  onClick: (id: string) => void,
+  onDelete: (id: string) => void
+};
+const CardRow: FunctionComponent<CardRowProps> = ({ card, onClick, onDelete }: CardRowProps): JSX.Element => {
+  const classes = useStyles();
+
+  const handleClick = (): void => {
+    onClick(card._id);
+  };
+
+  const handleDelete = ():void => {
+    onDelete(card._id);
+  };
+
+  return (
+    <TableRow classes={{ root: classes.customRow }} hover role="checkbox" tabIndex={-1}>
+      <TableCell>
+        <Button
+          mode="normal"
+          id={`CardTable_DeleteButton_${card._id}`}
+          onClick={handleDelete}
+        >
+          Delete
+        </Button>
+      </TableCell>
+      <TableCell onClick={handleClick}><Image src={card.imageUrl} alt={card.name} /></TableCell>
+      <TableCell onClick={handleClick}>{card.name}</TableCell>
+      <TableCell onClick={handleClick}>{card.count.total}</TableCell>
+    </TableRow>
+  );
+};
+
+const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick, onDelete }: Props): JSX.Element => {
   const classes = useStyles();
   const [page, setPage] = useState<number>(0);
 
-  const handleChangePage = (_:unknown, newPage: number):void => {
+  const handleChangePage = (_: unknown, newPage: number): void => {
     setPage(newPage);
   };
 
-  const handleRowClick = (id:string):void => {
+  const handleEditClick = (id: string): void => {
     onClick(id);
+  };
+
+  const handleDeleteClick = (id: string): void => {
+    onDelete(id);
   };
 
   const cardsToShow = cards.slice(page * numberItemsInPage, page * numberItemsInPage + numberItemsInPage);
@@ -46,18 +85,14 @@ const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick
           <TableHead>
             <TableRow>
               <TableCell />
+              <TableCell />
               <TableCell>Card name</TableCell>
               <TableCell>Number of cards</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {cardsToShow.map((card) => (
-              <TableRow classes={{ root: classes.customRow }} hover role="checkbox" tabIndex={-1} key={card._id} onClick={():void => handleRowClick(card._id)}>
-                <TableCell><Image src={card.imageUrl} alt={card.name} /></TableCell>
-                <TableCell>{card.name}</TableCell>
-                <TableCell className="hideOn400">{card.count.total}</TableCell>
-              </TableRow>
-            ))}
+            {cardsToShow.map(
+              (card) => <CardRow key={card._id} card={card} onClick={handleEditClick} onDelete={handleDeleteClick} /> )}
           </TableBody>
         </Table>
       </TableContainer>

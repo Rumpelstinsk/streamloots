@@ -6,6 +6,7 @@ type Props = { mode: 'normal' | 'cancel', id: string } & React.DetailedHTMLProps
 
 export const Button: FunctionComponent<Props> = ({ id, mode, children, onClick, ...props }: Props): JSX.Element => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>):void => {
+    event.preventDefault();    
     Analitics.saveClick(id);
     if (onClick) onClick(event);
   };
