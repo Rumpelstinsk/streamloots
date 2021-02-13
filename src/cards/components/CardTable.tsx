@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
+import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,14 +10,25 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Card } from '../../repositories';
 import Image from '../../components/Image';
+import './CardTable.css';
+
 
 type Props = {
   cards: Card[],
   numberItemsInPage: number,
   onClick: (id:string) => void
 };
+const useStyles = makeStyles({
+  customTableContainer: {
+    overflowX: 'initial'
+  },
+  customRow: {
+    cursor: 'pointer'
+  }
+});
 
-const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick }:Props): JSX.Element => {
+const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick }:Props): JSX.Element => {  
+  const classes = useStyles();
   const [page, setPage] = useState<number>(0);
 
   const handleChangePage = (_:unknown, newPage: number):void => {
@@ -30,7 +42,7 @@ const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick
   const cardsToShow = cards.slice(page * numberItemsInPage, page * numberItemsInPage + numberItemsInPage);
   return (
     <Paper>
-      <TableContainer>
+      <TableContainer classes={{ root: classes.customTableContainer }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -41,10 +53,10 @@ const CardTable: FunctionComponent<Props> = ({ cards, numberItemsInPage, onClick
           </TableHead>
           <TableBody>
             {cardsToShow.map((card) => (
-              <TableRow hover role="checkbox" tabIndex={-1} key={card._id} onClick={():void => handleRowClick(card._id)}>
+              <TableRow classes={{ root: classes.customRow }} hover role="checkbox" tabIndex={-1} key={card._id} onClick={():void => handleRowClick(card._id)}>
                 <TableCell><Image src={card.imageUrl} alt={card.name} /></TableCell>
                 <TableCell>{card.name}</TableCell>
-                <TableCell>{card.count.total}</TableCell>
+                <TableCell className="hideOn400">{card.count.total}</TableCell>
               </TableRow>
             ))}
           </TableBody>

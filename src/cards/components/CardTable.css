@@ -1,0 +1,8 @@
+.hideOn400{
+    
+}
+@media(max-width: 400px){
+    .hideOn400{
+        display: none;
+    }
+}

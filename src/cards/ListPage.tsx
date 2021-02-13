@@ -4,6 +4,7 @@ import { useCards } from '../store';
 import { useRefreshCards } from '../store/hooks/use-refresh-cards';
 import CardTable from './components/CardTable';
 import FilterForm from './containers/FilterForm/FilterForm';
+import './ListPage.css';
 
 const ListPage: FunctionComponent = (): JSX.Element => {
   const { cards } = useCards();
@@ -18,9 +19,13 @@ const ListPage: FunctionComponent = (): JSX.Element => {
   };
   
   return (
-    <div>
-      <FilterForm />
-      <CardTable cards={cards} numberItemsInPage={10} onClick={handleRowClick} />
+    <div className="container">
+      <div className="filterContent">
+        <FilterForm />
+      </div>
+      <div className="cardList">
+        <CardTable cards={cards} numberItemsInPage={10} onClick={handleRowClick} />
+      </div>      
     </div>
   );
 };

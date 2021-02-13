@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import noImage from '../icons/no-image.png';
+import './Image.css';
 
 type Props = {
   src: string,
@@ -16,7 +17,7 @@ const Image: FunctionComponent<Props> = ({ src, alt }:Props): JSX.Element => {
     setError(true);
   };
   return (
-    <img src={error ? noImage : src} alt={error ? 'No image found' : alt} onError={handleImageError} />    
+    <img className="image" src={error ? noImage : src} alt={error ? 'No image found' : alt} onError={handleImageError} />    
   );
 };
     

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import './PlainForm.css';
 
 type Props = {
   cardName: string,
@@ -48,9 +49,15 @@ const PlainForm: FunctionComponent<Props> = ({
 
   return (
     <div>
-      <input type="text" name="cardName" aria-label="Filter by card name" placeholder="Write a card name" value={filterState.cardName} onChange={handleChange} />
-      <input type="number" name="minCard" aria-label="Filter by number of cards" placeholder="Write a number of cards" value={filterState.minCard} onChange={handleChange} />
-      <button type="button" onClick={onClearFilter}>Clear</button>
+      <div className="filters">
+        <input className="inputFilter" type="text" name="cardName" aria-label="Filter by card name" placeholder="Write a card name" value={filterState.cardName} onChange={handleChange} />
+      </div>
+      <div className="filters">
+        <input className="inputFilter" type="number" name="minCard" aria-label="Filter by number of cards" placeholder="Write a number of cards" value={filterState.minCard} onChange={handleChange} />
+      </div>
+      <div className="clearFilter">
+        <button className="clearFilterButton" type="button" onClick={onClearFilter}>Clear</button>
+      </div>
     </div>
   );
 };
