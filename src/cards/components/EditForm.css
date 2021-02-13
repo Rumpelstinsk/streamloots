@@ -1,0 +1,20 @@
+.EditForm_displayImage {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding-top: 20px;
+}
+.EditForm_cardDataForm {
+    float: left;
+    width: 80%;
+  }
+
+@media(max-width: 550px){
+    .EditForm_displayImage {
+        display: none;
+    }  
+    
+    .EditForm_cardDataForm{
+        width: 100%;
+    }
+}
