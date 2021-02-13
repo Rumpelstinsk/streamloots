@@ -1,3 +1,4 @@
+import { Analitics } from '../../analitics';
 import { Card, CardRepository } from '../../repositories';
 
 export class FetchCards {
@@ -11,6 +12,8 @@ export class FetchCards {
       // We assume that the filter will be done in server side
       // In a real situation probably we found a complex api, to retrieve the page,
       // to set number ites per page, etc... This code is just to simulate server filtering
+      // Also if the API response were more complex, probably it would contain the total row numbers
+      Analitics.saveUserCards(this.totalCardsFrom(baseCards));
       const filteredNameCards = this.filterByName(baseCards, cardName);
 
       return this.filterByMinCards(filteredNameCards, minCards);
@@ -18,6 +21,12 @@ export class FetchCards {
       // Here we could place some logic to log the exception, in Sentry or somewhere else
       return [];
     }
+  }
+
+  private static totalCardsFrom(cards:Card[]): number {
+    return cards
+      .map(card => card.count.total)
+      .reduce((acc, total) => acc + total);
   }
 
   private static filterByName(cards: Card[], cardName:string):Card[] {

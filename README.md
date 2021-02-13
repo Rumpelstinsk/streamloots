@@ -32,3 +32,16 @@ Due to the mocks used on testing, this solution should be completed with some ac
 
 ## Securizing API Client
 In this approach, I could directly load the JSON who contains the card sample in an asnchronous way, however I prefer to consume the data from github. In a real situation, consuming user cards would has any kind of server filtering. Also, this api should provided only the user's cards, so it will need some kind of authorization. So, this approach prettends to show where I will place al that parts in a real problem, and also is more similar to a real situation.
+
+## User cards Analitics
+As I comment in the previous section, I assumed that in a real situation, the number of total cards will be provided for the same api who retrives the filtered cards. Maybe it could have this kind of contract:
+```JSON
+{
+    "cards": {...},
+    "summary": {
+        "actualPage": 5,
+        "totalPages": 20,
+        "cardsPerPage": 10
+    }
+}
+```

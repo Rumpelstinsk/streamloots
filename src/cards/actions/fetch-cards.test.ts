@@ -1,3 +1,4 @@
+import { Analitics } from '../../analitics';
 import { CardRepository } from '../../repositories';
 import { cardsFrom } from '../../tests/helpers/card-helper';
 import { FetchCards } from './fetch-cards';
@@ -10,6 +11,17 @@ describe('FetchCards', () => {
     const result = await FetchCards.do();
 
     expect(result).toEqual(cards);
+  });
+
+  it('save total number of cards of the user', async () => {
+    const cards = cardsFrom(5);    
+    const totalCards = 10;
+    CardRepository.search = jest.fn().mockResolvedValue(cards);
+    Analitics.saveUserCards = jest.fn();
+
+    await FetchCards.do();
+
+    expect(Analitics.saveUserCards).toHaveBeenCalledWith(totalCards);
   });
 
   it('returns filtered cards by name', async () => {
