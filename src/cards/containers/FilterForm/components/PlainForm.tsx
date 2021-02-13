@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import { Button } from '../../../../components/Button';
 import './PlainForm.css';
 
 type Props = {
@@ -56,7 +57,7 @@ const PlainForm: FunctionComponent<Props> = ({
         <input className="inputFilter" type="number" name="minCard" aria-label="Filter by number of cards" placeholder="Write a number of cards" value={filterState.minCard} onChange={handleChange} />
       </div>
       <div className="clearFilter">
-        <button className="clearFilterButton" type="button" onClick={onClearFilter}>Clear</button>
+        <Button mode="normal" onClick={onClearFilter}>Clear</Button>
       </div>
     </div>
   );

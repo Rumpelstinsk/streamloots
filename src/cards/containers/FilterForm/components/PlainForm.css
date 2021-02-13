@@ -3,22 +3,6 @@
     font-size: 20px;
 }
 
-.clearFilterButton {
-    padding: 10px 35px;
-    background-color: #1e69da;
-    color: white;
-    font-size: 20px;
-    border: none;
-    border-radius: 30px;
-    margin-top: 5px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.clearFilterButton:hover{
-    background-color: #588bd8;
-}
-
 .filters{
     width: calc(50% - 90px);
     float: left;

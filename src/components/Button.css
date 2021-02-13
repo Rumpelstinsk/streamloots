@@ -1,0 +1,26 @@
+.BaseComponent_button {
+    padding: 10px 35px;    
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.BaseComponent_normal{
+    background-color: #1e69da;
+}
+
+.BaseComponent_cancel{
+    background-color: #4a5d79;
+}
+
+.BaseComponent_button:hover{
+    background-color: #588bd8;
+}
+
+.BaseComponent_button:disabled{
+    cursor: default;
+    background-color: #8cb5f1;
+}

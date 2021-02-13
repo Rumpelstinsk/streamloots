@@ -2,6 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Card } from '../../repositories';
 import Image from '../../components/Image';
 import './EditForm.css';
+import { Button } from '../../components/Button';
 
 
 type Props = {
@@ -62,8 +63,8 @@ const EditForm: FunctionComponent<Props> = ({ card, onSave, onCancel }: Props): 
         </div>
 
         <div style={styles.divButtons}>
-          <button style={styles.saveButton} type="button" disabled={disableSaveButton} onClick={handleClick}>Save</button>
-          <button style={styles.cancelButton} type="button" onClick={handleCancel}>Cancel</button>
+          <Button mode="normal" disabled={disableSaveButton} onClick={handleClick}>Save</Button>
+          <Button mode="cancel" onClick={handleCancel}>Cancel</Button>
         </div>
       </div>
     </div>
@@ -96,28 +97,6 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   divButtons: {
     float: 'right'
-  },
-  saveButton: {
-    padding: '10px 35px',
-    backgroundColor: '#1e69da',
-    color: 'white',
-    fontSize: '20px',
-    border: 'none',
-    borderRadius: '30px',
-    marginTop: '5px',
-    marginRight: '5px',
-    cursor: 'pointer'
-  },
-  cancelButton:{
-    padding: '10px 35px',
-    backgroundColor: '#4a5d79',
-    color: 'white',
-    fontSize: '20px',
-    border: 'none',
-    borderRadius: '30px',
-    marginTop: '5px',
-    marginRight: '5px',
-    cursor: 'pointer'
   }
 };
 
