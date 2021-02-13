@@ -61,8 +61,8 @@ const EditForm: FunctionComponent<Props> = ({ card, onSave, onCancel }: Props): 
         </div>
 
         <div style={styles.divButtons}>
-          <Button mode="normal" disabled={disableSaveButton} onClick={handleClick}>Save</Button>
-          <Button mode="cancel" onClick={handleCancel}>Cancel</Button>
+          <Button id="EditForm_SaveButton" mode="normal" disabled={disableSaveButton} onClick={handleClick}>Save</Button>
+          <Button id="EditForm_CancelButton" mode="cancel" onClick={handleCancel}>Cancel</Button>
         </div>
       </div>
     </div>

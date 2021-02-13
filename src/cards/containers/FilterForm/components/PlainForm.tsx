@@ -57,7 +57,7 @@ const PlainForm: FunctionComponent<Props> = ({
         <input className="inputFilter" type="number" name="minCard" aria-label="Filter by number of cards" placeholder="Write a number of cards" value={filterState.minCard} onChange={handleChange} />
       </div>
       <div className="clearFilter">
-        <Button mode="normal" onClick={onClearFilter}>Clear</Button>
+        <Button id="PlainForm_ClearFilterButton" mode="normal" onClick={onClearFilter}>Clear</Button>
       </div>
     </div>
   );
