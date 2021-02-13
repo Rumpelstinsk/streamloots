@@ -18,6 +18,6 @@ describe('Navigation', () => {
     
     Navigation.toCardDetail(anId);
 
-    expect(Navigation.history.location.pathname).toEqual(Urls.CardDetail + anId);
+    expect(Navigation.history.location.pathname).toEqual(`/CardEdit/${anId}`);
   });
 });

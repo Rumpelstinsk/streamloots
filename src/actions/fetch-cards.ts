@@ -11,14 +11,25 @@ export class FetchCards {
       // We assume that the filter will be done in server side
       // In a real situation probably we found a complex api, to retrieve the page,
       // to set number ites per page, etc... This code is just to simulate server filtering
-      const filterCards = baseCards
-        .filter(card => cardName === '' || card.name === cardName)
-        .filter(card => minCards === null || card.count.total >= minCards);
+      const filteredNameCards = this.filterByName(baseCards, cardName);
 
-      return filterCards;
+      return this.filterByMinCards(filteredNameCards, minCards);
     } catch {
       // Here we could place some logic to log the exception, in Sentry or somewhere else
       return [];
     }
+  }
+
+  private static filterByName(cards: Card[], cardName:string):Card[] {
+    if (cardName === '') return cards;
+
+    const filterName = cardName.toLowerCase();
+    return cards.filter(card => card.name.toLowerCase().indexOf(filterName) >= 0);
+  }
+
+  private static filterByMinCards(cards: Card[], minCards:number | null):Card[] {
+    if (minCards === null || minCards <= 0) return cards;
+
+    return cards.filter(card => card.count.total >= minCards);
   }
 }

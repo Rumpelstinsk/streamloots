@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
-import cardsFrom from '../../tests/helpers/cards-from';
+import { cardsFrom } from '../../tests/helpers/card-helper';
 import CardTable from './CardTable';
 
 describe('Table', () => {
@@ -35,10 +36,22 @@ describe('Table', () => {
     expect(screen.queryByText('10-name')).not.toBeInTheDocument();
   });
 
+  it('triggers a callback on row click', () => {
+    const cards = cardsFrom(10);
+    const card = cards[3];
+    const onClick = jest.fn();
+    renderComponent({ cards, onClick });
+
+    userEvent.click(screen.getByText(card.name));
+
+    expect(onClick).toHaveBeenCalledWith(card._id);
+  });
+
   const renderComponent = (props?: Record<string, unknown>): void => {
     const defaultProps = {
       cards: [],
-      numberItemsInPage: 10
+      numberItemsInPage: 10,
+      onClick: jest.fn()
     };
 
     render(<CardTable {...defaultProps} {...props} />);

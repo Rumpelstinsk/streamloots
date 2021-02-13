@@ -2,7 +2,7 @@ import { createBrowserHistory, History } from 'history';
 
 export enum Urls {
   Dashboard = '/Dashboard',
-  CardDetail = '/CardEdit/'
+  CardDetail = '/CardEdit/:id'
 }
 
 export default class Navigation {
@@ -13,6 +13,6 @@ export default class Navigation {
   }
 
   static toCardDetail(id:string):void {
-    this.history.push(Urls.CardDetail + id);
+    this.history.push(Urls.CardDetail.replace(':id', id));
   }
 }
