@@ -1,5 +1,5 @@
 import { createBrowserHistory } from 'history';
-import Navigation, { Urls } from './navigation';
+import { Navigation, Urls } from './navigation';
 
 describe('Navigation', () => {
   beforeEach(() => {

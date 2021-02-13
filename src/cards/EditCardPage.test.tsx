@@ -8,9 +8,9 @@ import { initialState as initialCardState } from '../store/cards/reducer';
 import { initialState as initialFilterState } from '../store/filters/reducer';
 import EditCardPage from './EditCardPage';
 import { cardFrom } from '../tests/helpers/card-helper';
-import Navigation from '../navigation/navigation';
+import { Navigation } from '../navigation';
 import * as useCardHook from '../store/hooks/use-cards';
-import { UpdateCard } from '../actions/update-card';
+import { UpdateCard } from './actions/update-card';
 
 const mockCard = cardFrom(5);
 jest.mock('react-router-dom', () => ({    

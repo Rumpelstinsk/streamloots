@@ -1,4 +1,4 @@
-import { Card } from '../repositories';
+import { Card } from '../../repositories';
 
 export class UpdateCard{
   static do(card:Card):Promise<boolean> {

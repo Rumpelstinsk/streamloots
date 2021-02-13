@@ -7,10 +7,10 @@ import { StoreType } from '../store/store';
 import { initialState as initialCardState } from '../store/cards/reducer';
 import { initialState as initialFilterState } from '../store/filters/reducer';
 import ListPage from './ListPage';
-import { FetchCards } from '../actions/fetch-cards';
+import { FetchCards } from './actions/fetch-cards';
 import { setCards } from '../store/cards/actions';
 import { cardsFrom } from '../tests/helpers/card-helper';
-import Navigation from '../navigation/navigation';
+import { Navigation } from '../navigation';
 import * as useCardHook from '../store/hooks/use-cards';
 
 

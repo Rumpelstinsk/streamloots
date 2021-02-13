@@ -1,4 +1,4 @@
-import { Card, CardRepository } from '../repositories';
+import { Card, CardRepository } from '../../repositories';
 
 export class FetchCards {
   static async do(cardName:string = '', minCards: number | null = null):Promise<Card[]>{

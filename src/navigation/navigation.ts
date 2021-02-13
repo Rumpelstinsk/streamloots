@@ -5,7 +5,7 @@ export enum Urls {
   CardDetail = '/CardEdit/:id'
 }
 
-export default class Navigation {
+export class Navigation {
   static history: History = createBrowserHistory();
 
   static toDashboard():void {

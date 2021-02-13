@@ -1,5 +1,5 @@
-import { CardRepository } from '../repositories';
-import { cardsFrom } from '../tests/helpers/card-helper';
+import { CardRepository } from '../../repositories';
+import { cardsFrom } from '../../tests/helpers/card-helper';
 import { FetchCards } from './fetch-cards';
 
 describe('FetchCards', () => {

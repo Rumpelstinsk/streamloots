@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Button } from '../../../../components/Button';
+import { Button } from '../../../../components';
 import './PlainForm.css';
 
 type Props = {

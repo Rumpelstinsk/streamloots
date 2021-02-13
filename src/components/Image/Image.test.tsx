@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import Image from './Image';
+import { Image } from './Image';
 
 describe('Loading', () => {
   it('shows an image', () => {

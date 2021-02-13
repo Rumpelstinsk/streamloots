@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Navigation from '../navigation/navigation';
+import { Navigation } from '../navigation';
 import { Card } from '../repositories';
 import { useCards } from '../store';
-import EditForm from './components/EditForm';
-import { UpdateCard } from '../actions/update-card';
+import EditForm from './components/EditForm/EditForm';
+import { UpdateCard } from './actions/update-card';
 
 const ListPage: FunctionComponent = (): JSX.Element => {
   const { cards, editCard } = useCards();

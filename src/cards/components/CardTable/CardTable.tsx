@@ -8,9 +8,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Card } from '../../repositories';
-import Image from '../../components/Image';
-import './CardTable.css';
+import { Card } from '../../../repositories';
+import { Image } from '../../../components';
 
 
 type Props = {

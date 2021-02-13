@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import Navigation from '../navigation/navigation';
-import { useCards } from '../store';
-import { useRefreshCards } from '../store/hooks/use-refresh-cards';
-import CardTable from './components/CardTable';
+import { Navigation } from '../navigation';
+import { useCards, useRefreshCards } from '../store';
+
+import CardTable from './components/CardTable/CardTable';
 import FilterForm from './containers/FilterForm/FilterForm';
 import './ListPage.css';
 

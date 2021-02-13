@@ -1,9 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Card } from '../../repositories';
-import Image from '../../components/Image';
+import { Card } from '../../../repositories';
+import { Image, Button } from '../../../components';
 import './EditForm.css';
-import { Button } from '../../components/Button';
-
 
 type Props = {
   card: Card,

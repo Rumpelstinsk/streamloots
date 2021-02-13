@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchCards } from '../../actions/fetch-cards';
+import { FetchCards } from '../../cards/actions/fetch-cards';
 import { setCards } from '../cards/actions';
 import { StoreType } from '../store';
 

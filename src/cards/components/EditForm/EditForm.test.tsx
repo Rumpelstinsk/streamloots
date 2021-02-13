@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { cardFrom } from '../../tests/helpers/card-helper';
+import { cardFrom } from '../../../tests/helpers/card-helper';
 import EditForm from './EditForm';
 
 describe('EditForm', () => {
